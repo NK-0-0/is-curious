@@ -32,7 +32,7 @@ jobs:
         run: npm run build:deploy
 
       - name: Verify build output
-        run: ls -la dist
+        run: ls -la dist/is-curious
 
       - name: List all contents in dist folder
         run: ls -la dist && find dist
@@ -42,7 +42,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           branch: github-pages
-          folder: dist/is-curious
+          folder: dist/is-curious/browser
           
 
       # - name: Deploy to GitHub Pages
