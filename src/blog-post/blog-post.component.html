@@ -1,0 +1,34 @@
+ <div class="blog-post-container" *ngIf="!loading">
+      <header class="post-header">
+        <button class="back-button" (click)="goBack()">← Back to Articles</button>
+        <div class="post-meta">
+          <span>{{ post?.author }}</span>
+          <span>{{ post?.date }}</span>
+          <span>{{ post?.readTime }}</span>
+        </div>
+        <h1 class="post-title">{{ post?.title }}</h1>
+        <p class="post-excerpt">{{ post?.excerpt }}</p>
+      </header>
+
+      <main class="post-content">
+        <div class="post-image" *ngIf="post?.mainImage">
+          <!-- You can add image display logic here -->
+        </div>
+        
+        <div class="post-body">
+          <!-- This is where you'd render the rich text content from Sanity -->
+          <p>{{ post?.body || 'Content will be loaded from Sanity...' }}</p>
+        </div>
+      </main>
+    </div>
+
+    <div class="loading-container" *ngIf="loading">
+      <div class="spinner"></div>
+      <p>Loading article...</p>
+    </div>
+
+    <div class="error-container" *ngIf="error">
+      <h2>Article Not Found</h2>
+      <p>Sorry, we couldn't find the article you're looking for.</p>
+      <button (click)="goBack()">Return to Articles</button>
+    </div>
