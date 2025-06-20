@@ -1,4 +1,4 @@
-@import '../styles.scss';
+@use "../styles/abstracts" as *;
 
 @mixin gradient-text($gradient: $primary-gradient) {
   background: $gradient;

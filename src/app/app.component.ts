@@ -5,7 +5,10 @@ import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { SanityService } from '../sanity.service';
-import { NavbarComponent } from "../navbar/navbar.component"; // Adjust path as needed
+import { NavbarComponent } from "../navbar/navbar.component";
+import { FooterComponent } from "./footer/footer.component";
+import { CategoriesComponent } from "./categories/categories.component"; // Adjust path as needed
+import { Category } from './shared/models/category.interface';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -25,17 +28,10 @@ export interface BlogPost {
   mainImage?: any; // For featured images
 }
 
-export interface Category {
-  name: string;
-  icon: string;
-  count: number;
-  slug: string;
-  _id?: string;
-}
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, NavbarComponent],
+  imports: [RouterOutlet, CommonModule, NavbarComponent, FooterComponent, CategoriesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -41,21 +41,7 @@
     </div>
   </section>
 
-  <section class="categories-section" id="categories">
-    <div class="container">
-      <h2 class="section-title">Explore Categories</h2>
-      <div class="categories-grid">
-        <div 
-          *ngFor="let category of categories; trackBy: trackByCategorySlug" 
-          class="category-card"
-          (click)="filterByCategory(category)">
-          <div class="category-icon">{{ category.icon }}</div>
-          <div class="category-name">{{ category.name }}</div>
-          <div class="category-count">{{ category.count }} articles</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-categories [categories]="categories" (filter)="filterByCategory($event)"/>
 
   <section class="newsletter-section">
     <div class="container">
@@ -82,14 +68,4 @@
   </section>
 </main>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Contact</a>
-      <a href="#">RSS Feed</a>
-    </div>
-    <p>&copy; 2025 TechInsights Blog. Powered by Sanity.io</p>
-  </div>
-</footer>
+<app-footer/>

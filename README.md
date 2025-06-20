@@ -57,3 +57,35 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## 🎨 SCSS Architecture
+
+### 🧱 7-1 Pattern Structure
+
+We follow the **7-1 pattern** for organizing SCSS, a scalable and maintainable folder architecture that separates concerns and enforces modularity.
+
+``
+src/
+└── assets/
+└── styles/
+├── abstracts/ // Sass variables, mixins, functions
+├── base/ // Reset, typography, HTML element styles
+├── components/ // SCSS for reusable UI components
+├── layouts/ // Layout utilities (grids, containers)
+├── pages/ // Page-specific styles
+├── themes/ // Light/Dark themes, color schemes
+├── utils/ // Helper classes, utility mixins
+└── main.scss // Root file that imports everything
+``
+
+### 📦 Sass Modules with `@use` and `@forward`
+
+This project uses **Sass modules** with `@use` and `@forward`, replacing the older `@import` syntax for better scope isolation and performance.
+
+#### 💡 Module Example
+
+```scss
+// abstracts/_variables.scss
+$primary-color: #0066ff;
+$font-stack: 'Roboto', sans-serif;
+

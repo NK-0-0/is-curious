@@ -1,0 +1,60 @@
+
+@use '../../styles/abstracts' as *;
+
+.categories-section {
+  padding: 3rem 0;
+  background: rgba(255, 255, 255, 0.02);
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .category-card {
+    padding: 2rem;
+    @include glass-morphism;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(78, 205, 196, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .category-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .category-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .category-count {
+      color: $text-muted;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-section {
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+   
+ .categories-section {
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

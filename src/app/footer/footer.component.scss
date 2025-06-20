@@ -1,0 +1,34 @@
+@use "../../styles/abstracts" as *;
+
+.footer {
+  padding: 3rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border-top: 1px solid $border-color;
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    .footer-links {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+}

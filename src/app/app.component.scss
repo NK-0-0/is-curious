@@ -1,26 +1,5 @@
-@import '../styles.scss';
-// Mixins
-@mixin glass-morphism {
-  background: $glass-bg;
-  backdrop-filter: blur(10px);
-  border: 1px solid $glass-border;
-}
+@use "../styles/abstracts" as *;
 
-@mixin hover-lift {
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  }
-}
-
-@mixin gradient-text($gradient: $primary-gradient) {
-  background: $gradient;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 // Base styles
 :host {
@@ -189,49 +168,6 @@
     }
   }
 }
-
-// Categories Section
-.categories-section {
-  padding: 3rem 0;
-  background: rgba(255, 255, 255, 0.02);
-
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .category-card {
-    padding: 2rem;
-    @include glass-morphism;
-    border-radius: 15px;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-
-    &:hover {
-      background: rgba(78, 205, 196, 0.1);
-      transform: translateY(-5px);
-    }
-
-    .category-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .category-name {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .category-count {
-      color: $text-muted;
-      font-size: 0.9rem;
-    }
-  }
-}
-
 // Newsletter Section
 .newsletter-section {
   padding: 5rem 0;
@@ -292,30 +228,6 @@
   }
 }
 
-// Footer
-.footer {
-  padding: 3rem 0;
-  background: rgba(0, 0, 0, 0.3);
-  text-align: center;
-  border-top: 1px solid $border-color;
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-
-    a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: $accent-color;
-      }
-    }
-  }
-}
 
 // Loading Animation
 .loading {
@@ -367,32 +279,13 @@
       gap: 1rem;
     }
   }
-
-  .categories-section {
-    .categories-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .footer {
-    .footer-links {
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-  }
 }
 
 @media (max-width: 480px) {
   .container {
     padding: 0 15px;
   }
-
-  .categories-section {
-    .categories-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
+  
   .section-title {
     font-size: 2rem;
   }
