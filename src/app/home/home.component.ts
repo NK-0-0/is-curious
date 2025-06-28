@@ -7,13 +7,14 @@ import { CategoriesComponent } from "../categories/categories.component";
 import { CommonModule } from '@angular/common';
 import { BlogPost } from '../shared/models/blog-post.interface';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { ParallexTestComponent } from "../parallex-test/parallex-test.component";
 
 
 gsap.registerPlugin(ScrollToPlugin);
 
 @Component({
   selector: 'app-home',
-  imports: [CategoriesComponent, CommonModule],
+  imports: [CategoriesComponent, CommonModule, ParallexTestComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

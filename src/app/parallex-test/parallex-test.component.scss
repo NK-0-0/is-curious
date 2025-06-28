@@ -48,3 +48,39 @@
     object-fit: cover;
     object-position: top;
 }
+
+
+.description p{
+  position: relative;
+  color: black;
+  font-size: 3vw;
+  text-transform: uppercase;
+  margin-top: 0rem;
+  margin-left: 10vw;
+line-height: 1.2;
+  padding-bottom: 0.5rem;
+  height: fit-content;
+}
+
+.text-line {
+  margin: 0px;
+   margin-bottom: 0.5rem;
+  position: relative;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+display: block;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// .description {
+//   position: relative;
+//   z-index: 3; // Highest z-index for text
+//   
+//   background: rgba(0, 0, 0, 0.8); // Dark background for text readability
+//   color: white;
+//   font-size: clamp(1.5rem, 4vw, 3rem); // Responsive font size
+//   text-transform: uppercase;
+//    // Reduce line height for tighter spacing
+// }
