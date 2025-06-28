@@ -1,4 +1,14 @@
-@use "../../styles/abstracts" as *;
+@use "abstracts" as *;
+
+
+// Base styles
+:host {
+  display: block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: $secondary-gradient;
+  color: $text-primary;
+  overflow-x: hidden;
+}
 
 .footer {
   padding: 3rem 0;

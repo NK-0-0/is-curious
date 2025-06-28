@@ -1,71 +1,10 @@
-<app-navbar
-(scrollEvent)="scrollToSection($event)"
-/>
-
+<app-navbar (scrollEvent)="scrollToSection($event)"/>
 <main>
-  <section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="container">
-      <div class="hero-content">
-        <h1>Explore the Future of Technology</h1>
-        <p>Discover cutting-edge insights, expert analysis, and the latest trends shaping our digital world. Join thousands of readers staying ahead of the curve.</p>
-        <a href="#" class="cta-button" (click)="scrollToSection('articles')">Start Reading</a>
-      </div>
-    </div>
-  </section>
 
-  <section class="featured-section" id="articles">
-    <div class="container">
-      <h2 class="section-title">Featured Articles</h2>
-      <div #postsContainer id="posts-container">
-        <div *ngIf="loading" class="loading">
-          <div class="spinner"></div>
-        </div>
-        
-        <div *ngIf="!loading" class="posts-grid">
-          <article 
-            *ngFor="let post of posts; trackBy: trackByPostId" 
-            class="post-card" 
-            (click)="navigateToPost(post)"
-            [attr.data-post-id]="post.id">
-            <div class="post-image"></div>
-            <div class="post-content">
-              <div class="post-meta">{{ post.author }} • {{ post.date }} • {{ post.readTime }}</div>
-              <h3 class="post-title">{{ post.title }}</h3>
-              <p class="post-excerpt">{{ post.excerpt }}</p>
-              <a href="#" class="read-more" (click)="$event.stopPropagation(); navigateToPost(post)">Read More →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
+  <router-outlet></router-outlet>
 
-  <app-categories [categories]="categories" (filter)="filterByCategory($event)"/>
 
-  <section class="newsletter-section">
-    <div class="container">
-      <h2 class="section-title">Stay Updated</h2>
-      <p>Get the latest articles and insights delivered straight to your inbox.</p>
-      <form class="newsletter-form" (submit)="onNewsletterSubmit($event)">
-        <input 
-          type="email" 
-          class="newsletter-input" 
-          placeholder="Enter your email address" 
-          required
-          [disabled]="subscriptionStatus === 'subscribing'">
-        <button 
-          type="submit" 
-          class="newsletter-button"
-          [disabled]="subscriptionStatus === 'subscribing'"
-          [class.success]="subscriptionStatus === 'success'">
-          <span *ngIf="subscriptionStatus === 'subscribing'">Subscribing...</span>
-          <span *ngIf="subscriptionStatus === 'success'">Subscribed!</span>
-          <span *ngIf="!subscriptionStatus">Subscribe</span>
-        </button>
-      </form>
-    </div>
-  </section>
 </main>
-
 <app-footer/>
+
+

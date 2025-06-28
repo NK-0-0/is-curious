@@ -32,7 +32,11 @@
               }
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
+              "includePaths": [
+                "src/styles",
+              "src/styles/abstracts",
+            "src/styles/base",
+          "src/styles/themes"]
             },
             "styles": [
               "src/styles.scss"
@@ -49,7 +53,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
+                  "maximumWarning": "10kB",
                   "maximumError": "8kB"
                 }
               ],

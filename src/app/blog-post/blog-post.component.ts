@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SanityService } from '../sanity.service';
-import { BlogPost } from '../app/app.component';
 import { Subscription } from 'rxjs';
+import { BlogPost } from '../shared/models/blog-post.interface';
 
 @Component({
   selector: 'app-blog-post',
