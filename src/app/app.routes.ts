@@ -2,12 +2,12 @@ import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ParallexTestComponent } from './parallex-test/parallex-test.component';
 
 export const routes: Routes = [
   {
     path: 'parallex',
-    component: ParallexTestComponent,
+     loadComponent: () =>
+      import('./parallex-test/parallex-test.component').then(c => c.ParallexTestComponent),
   },
   {
     path: 'blog/:slug', //Parameterized URL , parameter is prefixed with semi-colon
