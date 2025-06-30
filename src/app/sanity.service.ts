@@ -4,7 +4,7 @@ import { createClient, SanityClient } from '@sanity/client';
 import { Observable, from, catchError, retry, timeout, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SanityService {
   private client: SanityClient;
@@ -13,10 +13,10 @@ export class SanityService {
     this.client = createClient({
       projectId: 'r8f29mht', // Replace with your actual project ID
       dataset: 'production', // Replace with your dataset name
-      useCdn: false, // Important: set to false for development
+      useCdn: true, // Important: set to false for development
       apiVersion: '2024-01-01',
       withCredentials: false,
-      
+
       // Additional configuration to help with CORS
       requestTagPrefix: 'blog-app',
       timeout: 30000,
@@ -158,39 +158,39 @@ export class SanityService {
   // Helper method to build image URLs
   urlFor(source: any): string {
     if (!source?.asset?._ref) return '';
-    
+
     const ref = source.asset._ref;
     const [_file, id, extension] = ref.split('-');
-    
+
     return `https://cdn.sanity.io/images/${this.client.config().projectId}/${this.client.config().dataset}/${id}.${extension}`;
   }
 
-//   fetchPostBySlug(slug: string): Observable<any> {
-//   const query = `*[_type == "post" && slug.current == $slug][0]{
-//     _id,
-//     title,
-//     slug,
-//     author,
-//     publishedAt,
-//     excerpt,
-//     category,
-//     readTime,
-//     body,
-//     mainImage{
-//       asset->{
-//         _id,
-//         url
-//       }
-//     }
-//   }`;
-  
-//   const params = { slug };
-  
-//   return this.client.fetch(query, params).pipe(
-//     catchError(error => {
-//       console.error('Error fetching post by slug:', error);
-//       return of(null);
-//     })
-//   );
-// }
+  //   fetchPostBySlug(slug: string): Observable<any> {
+  //   const query = `*[_type == "post" && slug.current == $slug][0]{
+  //     _id,
+  //     title,
+  //     slug,
+  //     author,
+  //     publishedAt,
+  //     excerpt,
+  //     category,
+  //     readTime,
+  //     body,
+  //     mainImage{
+  //       asset->{
+  //         _id,
+  //         url
+  //       }
+  //     }
+  //   }`;
+
+  //   const params = { slug };
+
+  //   return this.client.fetch(query, params).pipe(
+  //     catchError(error => {
+  //       console.error('Error fetching post by slug:', error);
+  //       return of(null);
+  //     })
+  //   );
+  // }
 }

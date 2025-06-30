@@ -5,24 +5,17 @@ import { Router } from '@angular/router';
   selector: 'app-navbar',
   imports: [],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-
-
-
-  constructor(readonly _router:Router){
-
-  }
+  constructor(readonly _router: Router) {}
   @Output() scrollEvent = new EventEmitter<string>();
 
-public scrollToSection(sectionName: string) {
-  this.scrollEvent.emit(sectionName);
-}
+  public scrollToSection(sectionName: string) {
+    this.scrollEvent.emit(sectionName);
+  }
 
-gotToParallex() {
-this._router.navigate(['/parallex']);
-}
-
-
+  gotToParallex() {
+    this._router.navigate(['/parallex']);
+  }
 }

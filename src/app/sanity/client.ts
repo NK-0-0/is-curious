@@ -1,4 +1,3 @@
-
 // export const client = createClient({
 //   projectId: "r8f29mht",
 //   dataset: "production",
@@ -14,16 +13,16 @@ export const client = createClient({
   dataset: 'production', // or your dataset name
   useCdn: false, // Set to false for development to avoid caching issues
   apiVersion: '2024-01-01', // Use current date or your preferred API version
-  
+
   // CORS and authentication settings
   token: process.env['SANITY_TOKEN'] || '', // Optional: for write operations
-  
+
   // Additional CORS settings
   withCredentials: false,
-  
+
   // Request configuration
   requestTagPrefix: 'sanity',
-  
+
   // Timeout settings
   timeout: 30000, // 30 seconds
 });
@@ -48,4 +47,5 @@ export const cdnClient = createClient({
 });
 
 // Use appropriate client based on environment
-export const sanityClient = process.env['NODE_ENV'] === 'production' ? cdnClient : client;
+export const sanityClient =
+  process.env['NODE_ENV'] === 'production' ? cdnClient : client;

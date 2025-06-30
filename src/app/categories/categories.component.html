@@ -1,18 +1,14 @@
-  <section class="categories-section" id="categories">
-    <div class="container">
-      <h2 class="section-title">Explore Categories</h2>
-      <div class="categories-grid">
-        
-        @for(category of categories; track category.slug){
-<div
-          class="category-card"
-          (click)="filterByCategory(category)">
+<section class="categories-section" id="categories">
+  <div class="container">
+    <h2 class="section-title">Explore Categories</h2>
+    <div class="categories-grid">
+      @for (category of categories; track category.slug) {
+        <div class="category-card" (click)="filterByCategory(category)">
           <div class="category-icon">{{ category.icon }}</div>
           <div class="category-name">{{ category.name }}</div>
           <div class="category-count">{{ category.count }} articles</div>
         </div>
-        }
-        
-      </div>
+      }
     </div>
-  </section>
+  </div>
+</section>

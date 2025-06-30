@@ -5,16 +5,13 @@ import { Category } from '../shared/models/category.interface';
   selector: 'app-categories',
   imports: [],
   templateUrl: './categories.component.html',
-  styleUrl: './categories.component.scss'
+  styleUrl: './categories.component.scss',
 })
 export class CategoriesComponent {
-
-  @Input({required:true}) categories!: Category[]
+  @Input({ required: true }) categories!: Category[];
   @Output() filter = new EventEmitter<Category>();
 
-  public filterByCategory(category: Category):void{
-
+  public filterByCategory(category: Category): void {
     this.filter.emit(category);
   }
-
 }

@@ -64,8 +64,7 @@ For more information on using the Angular CLI, including detailed command refere
 
 We follow the **7-1 pattern** for organizing SCSS, a scalable and maintainable folder architecture that separates concerns and enforces modularity.
 
-``
-src/
+`src/
 └── assets/
 └── styles/
 ├── abstracts/ // Sass variables, mixins, functions
@@ -75,8 +74,7 @@ src/
 ├── pages/ // Page-specific styles
 ├── themes/ // Light/Dark themes, color schemes
 ├── utils/ // Helper classes, utility mixins
-└── main.scss // Root file that imports everything
-``
+└── main.scss // Root file that imports everything`
 
 ### 📦 Sass Modules with `@use` and `@forward`
 
@@ -88,4 +86,4 @@ This project uses **Sass modules** with `@use` and `@forward`, replacing the old
 // abstracts/_variables.scss
 $primary-color: #0066ff;
 $font-stack: 'Roboto', sans-serif;
-
+```

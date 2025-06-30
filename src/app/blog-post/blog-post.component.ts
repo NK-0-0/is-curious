@@ -9,13 +9,14 @@ import { BlogPost } from '../shared/models/blog-post.interface';
   selector: 'app-blog-post',
   standalone: true,
   imports: [CommonModule],
-  templateUrl:'./blog-post.component.html',
-  styleUrl: './blog-post.component.scss'
+  templateUrl: './blog-post.component.html',
+  styleUrl: './blog-post.component.scss',
 })
 export class BlogPostComponent implements OnInit, OnDestroy {
-  post: BlogPost | null = null;
-  loading = true;
-  error = false;
+  protected post: BlogPost | null = null;
+  protected isLoading: boolean = true;
+  protected error = false;
+
   private subscription: Subscription = new Subscription();
 
   constructor(
@@ -25,7 +26,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    console.log('In the blog post')
+    console.log('In the blog post');
     this.route.params.subscribe(params => {
       const slug = params['slug'];
       if (slug) {
@@ -39,12 +40,13 @@ export class BlogPostComponent implements OnInit, OnDestroy {
   }
 
   private loadPost(slug: string): void {
-    this.loading = true;
+    this.isLoading = true;
+
     this.error = false;
 
     // You'll need to add this method to your SanityService
     const sub = this.sanityService.fetchPostBySlug(slug).subscribe({
-      next: (sanityPost) => {
+      next: sanityPost => {
         if (sanityPost) {
           this.post = {
             id: 1,
@@ -57,33 +59,34 @@ export class BlogPostComponent implements OnInit, OnDestroy {
             readTime: sanityPost.readTime || '5 min read',
             slug: sanityPost.slug?.current || sanityPost._id,
             mainImage: sanityPost.mainImage,
-            body: sanityPost.body[0].children[0].text
+            body: sanityPost.body[0].children[0].text,
           };
         } else {
           this.error = true;
         }
-        this.loading = false;
+        this.isLoading = false;
       },
-      error: (error) => {
-        console.error('Error loading post:', error);
+      error: error => {
+        console.error('Error isLoadingpost:', error);
+
         this.error = true;
-        this.loading = false;
-      }
+        this.isLoading = false;
+      },
     });
 
-    console.log('sub',sub);
+    console.log('sub', sub);
 
     this.subscription.add(sub);
   }
 
   private formatDate(dateString: string): string {
     if (!dateString) return 'No date';
-    
+
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     });
   }
 
