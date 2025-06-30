@@ -1,0 +1,44 @@
+<div class="matrix-container">
+      <canvas #matrixCanvas class="matrix-rain"></canvas>
+      
+      <div class="content-overlay">
+        <div class="glitch-wrapper">
+          <h1 class="glitch-text" 
+              [attr.data-text]="'404'">404</h1>
+        </div>
+        
+        <div class="error-message">
+          <p class="matrix-text typing-animation">
+            <span class="green-text">SYSTEM ERROR:</span> Page not found in the Matrix
+          </p>
+          <p class="matrix-text fade-in-delayed">
+            The path you seek does not exist in this reality...
+          </p>
+        </div>
+        
+        <div class="actions">
+          <button class="matrix-button pulse-effect" 
+                  (click)="goHome()"
+                  (mouseenter)="playHoverSound()">
+            <span class="button-text">Take the Red Pill</span>
+            <div class="button-glow"></div>
+          </button>
+          
+          <button class="matrix-button matrix-button-secondary" 
+                  (click)="goBack()"
+                  (mouseenter)="playHoverSound()">
+            <span class="button-text">Follow the White Rabbit</span>
+            <div class="button-glow"></div>
+          </button>
+        </div>
+        
+        <div class="matrix-code">
+          <div class="code-line" *ngFor="let line of codeLines; let i = index"
+               [style.animation-delay]="(i * 0.5) + 's'">
+            {{ line }}
+          </div>
+        </div>
+      </div>
+      
+      <div class="scanlines"></div>
+    </div>

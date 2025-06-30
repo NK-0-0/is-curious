@@ -165,32 +165,4 @@ export class SanityService {
     return `https://cdn.sanity.io/images/${this.client.config().projectId}/${this.client.config().dataset}/${id}.${extension}`;
   }
 
-  //   fetchPostBySlug(slug: string): Observable<any> {
-  //   const query = `*[_type == "post" && slug.current == $slug][0]{
-  //     _id,
-  //     title,
-  //     slug,
-  //     author,
-  //     publishedAt,
-  //     excerpt,
-  //     category,
-  //     readTime,
-  //     body,
-  //     mainImage{
-  //       asset->{
-  //         _id,
-  //         url
-  //       }
-  //     }
-  //   }`;
-
-  //   const params = { slug };
-
-  //   return this.client.fetch(query, params).pipe(
-  //     catchError(error => {
-  //       console.error('Error fetching post by slug:', error);
-  //       return of(null);
-  //     })
-  //   );
-  // }
 }

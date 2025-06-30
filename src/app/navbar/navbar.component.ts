@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+
+// using @Inject() of Inject() is an alternative here 
   constructor(readonly _router: Router) {}
   @Output() scrollEvent = new EventEmitter<string>();
 

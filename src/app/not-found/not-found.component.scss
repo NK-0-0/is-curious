@@ -1,0 +1,300 @@
+.matrix-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .matrix-rain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .content-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #00ff00;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .glitch-wrapper {
+      margin-bottom: 2rem;
+    }
+
+    .glitch-text {
+      font-size: 8rem;
+      font-weight: bold;
+      color: #00ff00;
+      text-shadow: 
+        0 0 10px #00ff00,
+        0 0 20px #00ff00,
+        0 0 30px #00ff00;
+      position: relative;
+      animation: glitch 2s infinite;
+      margin: 0;
+    }
+
+    .glitch-text::before,
+    .glitch-text::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .glitch-text::before {
+      animation: glitch-1 0.5s infinite;
+      color: #ff0000;
+      z-index: -1;
+    }
+
+    .glitch-text::after {
+      animation: glitch-2 0.5s infinite;
+      color: #0000ff;
+      z-index: -2;
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      10% { transform: translate(-2px, -2px); }
+      20% { transform: translate(2px, 2px); }
+      30% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      50% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      70% { transform: translate(-2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      90% { transform: translate(-2px, -2px); }
+    }
+
+    @keyframes glitch-1 {
+      0%, 100% { transform: translate(0); }
+      10% { transform: translate(-5px, -2px); }
+      20% { transform: translate(5px, 2px); }
+      30% { transform: translate(-3px, 1px); }
+      40% { transform: translate(3px, -1px); }
+      50% { transform: translate(-2px, -3px); }
+      60% { transform: translate(2px, 3px); }
+      70% { transform: translate(-1px, 2px); }
+      80% { transform: translate(1px, -2px); }
+      90% { transform: translate(-3px, -1px); }
+    }
+
+    @keyframes glitch-2 {
+      0%, 100% { transform: translate(0); }
+      10% { transform: translate(3px, 1px); }
+      20% { transform: translate(-3px, -1px); }
+      30% { transform: translate(5px, -2px); }
+      40% { transform: translate(-5px, 2px); }
+      50% { transform: translate(2px, 3px); }
+      60% { transform: translate(-2px, -3px); }
+      70% { transform: translate(1px, -1px); }
+      80% { transform: translate(-1px, 1px); }
+      90% { transform: translate(4px, 0px); }
+    }
+
+    .error-message {
+      margin: 2rem 0;
+    }
+
+    .matrix-text {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    .green-text {
+      color: #00ff41;
+      font-weight: bold;
+    }
+
+    .typing-animation {
+      overflow: hidden;
+      border-right: 2px solid #00ff00;
+      white-space: nowrap;
+      animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #00ff00; }
+    }
+
+    .fade-in-delayed {
+      opacity: 0;
+      animation: fadeIn 1s ease-in 3s forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .actions {
+      margin: 3rem 0;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .matrix-button {
+      position: relative;
+      background: transparent;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      padding: 15px 30px;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .matrix-button:hover {
+      color: #000;
+      box-shadow: 
+        0 0 20px #00ff00,
+        inset 0 0 20px #00ff00;
+    }
+
+    .matrix-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #00ff00, transparent);
+      transition: left 0.5s;
+      z-index: -1;
+    }
+
+    .matrix-button:hover::before {
+      left: 100%;
+    }
+
+    .button-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #00ff00;
+      opacity: 0;
+      z-index: -2;
+      transition: opacity 0.3s ease;
+    }
+
+    .matrix-button:hover .button-glow {
+      opacity: 0.3;
+    }
+
+    .matrix-button-secondary {
+      border-color: #ff0080;
+      color: #ff0080;
+    }
+
+    .matrix-button-secondary:hover {
+      box-shadow: 
+        0 0 20px #ff0080,
+        inset 0 0 20px #ff0080;
+    }
+
+    .matrix-button-secondary::before {
+      background: linear-gradient(90deg, transparent, #ff0080, transparent);
+    }
+
+    .matrix-button-secondary .button-glow {
+      background: #ff0080;
+    }
+
+    .pulse-effect {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+    }
+
+    .matrix-code {
+      margin-top: 3rem;
+      opacity: 0.6;
+    }
+
+    .code-line {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #00ff00;
+      margin: 0.5rem 0;
+      opacity: 0;
+      animation: slideInFromLeft 1s ease-out forwards;
+    }
+
+    @keyframes slideInFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 0.6;
+        transform: translateX(0);
+      }
+    }
+
+    .scanlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 0, 0.03) 2px,
+        rgba(0, 255, 0, 0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    @media (max-width: 768px) {
+      .glitch-text {
+        font-size: 4rem;
+      }
+      
+      .actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .matrix-button {
+        width: 250px;
+      }
+    }
+  
